@@ -5,8 +5,11 @@
 StableTrussOpt-MATLAB is a program of 3D truss structure optimization with global stability constraints in MATLAB. For structural analysis, the frame elements are used to capture true 3D behavior. Then the problem is solved as a sizing optimization task formulated as a SDP program with polynomial constraints:
 
 $$\min_{\bf{A} \in \mathbb{R}^{ne}} \qquad \bf{A}^T\bf{L} $$
+
 $$\text{s.t.} \quad \bf{I}_{y,z,x} = \mathcal{P}(\bf{A}) ,$$
+
 $$( \bf{K}_e(\bf{A},\bf{I}_{y,z,x}) + \bar{\lambda} \bf{K}_g) \succeq 0 ,$$
+
 $$ A_i \gt 0 , \forall i.$$
 
 
