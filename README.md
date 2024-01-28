@@ -5,7 +5,7 @@ Formulation of optimization program of truss structure optimization with global 
 
 * In addition to Matlab it is essential to have installation of YALMIP (https://yalmip.github.io/) and PENLAB (https://web.mat.bham.ac.uk/kocvara/penlab/)
 
-* ## Authors
+## Authors
 [Matěj Lepš](mailto:matej.leps@fsv.cvut.cz) <br/>
 [Šimon Glanc](mailto:simon.glanc@fsv.cvut.cz) <br/>
 
