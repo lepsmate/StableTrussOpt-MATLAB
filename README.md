@@ -8,7 +8,7 @@ $$\min_{\bf{A} \in \mathbb{R}^{ne}} \qquad \bf{A}^T\bf{L} $$
 
 $$\text{s.t.} \quad \bf{I}_{y,z,x} = \mathcal{P}(\bf{A}) ,$$
 
-$$(\bf{K}_e(\bf{A},\bf{I}_{y,z,x}) + \bar{\lambda} \bf{K}_g) \succeq 0 ,$$
+$$(\bf{K}e(\bf{A},\bf{I}_{y,z,x}) + \bar{\lambda} \bf{K}g) \succeq 0 ,$$
 
 $$ A_i \gt 0 , \forall i.$$
 
