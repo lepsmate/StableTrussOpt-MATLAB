@@ -7,7 +7,7 @@ Formulation of optimization program of truss structure optimization with global 
 
 * ## Authors
 [Matěj Lepš](mailto:matej.leps@fsv.cvut.cz) <br/>
-[Šimon Glanc](simon.glanc@fsv.cvut.cz) <br/>
+[Šimon Glanc](mailto:simon.glanc@fsv.cvut.cz) <br/>
 
 ## Acknowledgments
 Financial support for this work was provided by the Technology Agency of the Czech Republic (TAČR), project number FW04020163 (Extension of the HiStruct platform by optimisation of global stability and analysis of design
