@@ -30,11 +30,11 @@ Copyright (C) 2024 Matěj Lepš, Šimon Glanc
 ## Running StableTrussOpt-MATLAB
 Only the stability analysis
 ```
->> 
+>> towerStabTorii_ex0_stab1
 ```
 The whole optimization
 ```
->> 
+>> towerStabTorii_ex0_opt1
 ```
 
 ## Documentation
