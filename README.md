@@ -10,7 +10,7 @@ $$\text{s.t.} \quad \bf{I}_{y,z,x} = \mathcal{P}(\bf{A}) ,$$
 
 $$(\bf{K}e(\bf{A},\bf{I}_{y,z,x}) + \bar{\lambda} \bf{K}g) \succeq 0 ,$$
 
-$$ A_i \gt 0 , \forall i.$$
+$$ A_i \ge A_{min} , \forall i.$$
 
 
 The whole program is executed on an example given in (Torii et al., 2015):
