@@ -15,6 +15,7 @@ $$ A_i \ge A_{min} , \forall i.$$
 
 The whole program is executed on an example given in (Torii et al., 2015):
 ![Torri_Example1](Torri_Example1.png)
+![deformation](deformation.png)
 
 For educational and research purposes, license for using StableTrussOpt-MATLAB is free of charge.
 For commercial purposes, please contact program developers.
