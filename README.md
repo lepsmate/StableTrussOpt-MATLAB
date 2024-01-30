@@ -41,7 +41,7 @@ The output should look like [TypicalRun.txt](TypicalRun.txt) .
 
 ## Documentation
 Documentation is available [here](StableTrussOpt-MATLAB_Documentation_EN.pdf).
-User manual is available [here](.pdf).
+User manual is available [here](UsersManual.pdf).
 
 
 
