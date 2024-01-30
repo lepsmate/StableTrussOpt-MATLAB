@@ -40,7 +40,8 @@ The whole optimization
 The output should look like [TypicalRun.txt](TypicalRun.txt) .
 
 ## Documentation
-Documentation/user manual is available [here](.pdf).
+Documentation is available [here](StableTrussOpt-MATLAB_Documentation_EN.pdf).
+User manual is available [here](.pdf).
 
 
 

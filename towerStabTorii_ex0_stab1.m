@@ -110,7 +110,7 @@ elements.ndofs = max(max(elements.codeNumbers));    % number of unknown dofs for
 endForces.global = sparse(elements.ndofs,1);                                
 endForces.global(1:max(max(beams.codeNumbers))) = f;    % assembly force vector
 transformationMatrix = transformationMatrixFn(elements);    % local and global transformation matrix and lengths in struct
-stiffnesMatrix = stiffnessMatrixFn(elements,transformationMatrix); % local and global stifness matrix in struct
+stiffnesMatrix = stiffnessMatrixStabFn(elements,transformationMatrix); % local and global stifness matrix in struct
 
 [endForces.local, displ] = endForcesFn(stiffnesMatrix,endForces,transformationMatrix,elements); % Solving FEM -> u = K\f
 

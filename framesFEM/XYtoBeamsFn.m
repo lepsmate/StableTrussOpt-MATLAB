@@ -1,14 +1,12 @@
-% Assignment of XY vectors to individual elements of the beam
+% Assignment of XY vectors to individual beams
 %
 % Input: 
 %   beams           .nbeams         - number of beams
 %                   .vectorX        - directional vector for individual beams
-%   beams.disc                      - beam discretization
-%   numberOfBeam                    - number of beams
-%   beamVectorXY                    - XY vector for individual beams   
+
 %
 % Output:
-%   elementVectorXY                 - XY vector for individual elements     
+%   XY                              - XY vector for individual beams     
 %
 % (c) S. Glanc, 2024
 
