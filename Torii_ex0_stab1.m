@@ -56,7 +56,6 @@ beams.nodesHead = [1;3;3;2;4;2];                    % elements starting nodes
 beams.nodesEnd  = [2;2;4;4;5;5];                    % elements ending nodes
 beams.nbeams = numel(beams.nodesHead);              % number of beams
 
-% Beams sections
 beams.disc      = ones(beams.nbeams,1)*ndisc;       % disretization of beams
 beams.sections  = 1:nSections;              % id of sections to beams
 
@@ -89,10 +88,10 @@ loads.rz.nodes = [];                                % node indices with z-direct
 loads.rz.value = []; 
 
 %% Force vector
-forceVector = sparse([loads.x.nodes*6-5; loads.y.nodes*6-4; loads.z.nodes*6-3;loads.rx.nodes*3-2; loads.ry.nodes*3-1; loads.rz.nodes*3], ...
-                     1, ...
-                     [loads.x.value; loads.y.value; loads.z.value;loads.rx.value; loads.ry.value; loads.rz.value], ...
-                     nodes.nnodes*6, 1);
+forceVector = sparse([loads.x.nodes*6-5; loads.y.nodes*6-4; loads.z.nodes*6-3;...
+                      loads.rx.nodes*3-2; loads.ry.nodes*3-1; loads.rz.nodes*3],...
+                      1,[loads.x.value; loads.y.value; loads.z.value;loads.rx.value;...
+                      loads.ry.value; loads.rz.value],nodes.nnodes*6, 1);
 f = forceVector(reshape(reshape(nodes.dofs.',[],1).', 1, [])');
 %% FEM
 nodes.ndofs = sum(sum(nodes.dofs));                 % number of unknown dofs
@@ -110,15 +109,16 @@ elements.ndofs = max(max(elements.codeNumbers));    % number of unknown dofs for
 endForces.global = sparse(elements.ndofs,1);                                
 endForces.global(1:max(max(beams.codeNumbers))) = f;    % assembly force vector
 transformationMatrix = transformationMatrixFn(elements);    % local and global transformation matrix and lengths in struct
-stiffnesMatrix = stiffnessMatrixStabFn(elements,transformationMatrix); % local and global stifness matrix in struct
+stiffnesMatrix = stiffnessMatrixFn(elements,transformationMatrix); % local and global stifness matrix in struct
 
-[endForces.local, displ] = endForcesFn(stiffnesMatrix,endForces,transformationMatrix,elements); % Solving FEM -> u = K\f
+[endForces.local, displ] = endForcesFn(stiffnesMatrix,endForces,...
+                            transformationMatrix,elements); % Solving FEM -> u = K\f
 
+% Stability
 geometricMatrix = geometricMatrixFnV2(elements,transformationMatrix,endForces);             % Geometric stiffness matrix
 
 volume = sum(elements.sections.A .* transformationMatrix.lengths);
 
-% Stability
 Results = criticalLoadFn(stiffnesMatrix.global,geometricMatrix.global,100);
 
 [sortedValues,sortedVectors]= sortValuesVectorFn(Results.values,Results.vectors);
@@ -128,7 +128,7 @@ disp('= Section areas ========')
 fprintf('A%d = %f\n', [(1:nSections)', sections.A]');
 fprintf('Volume: %f\n', value(volume));
 
-disp('= 1. critical load =====')
+disp('= Five smallest critical loads =======')
 fprintf('lambda%d = %f\n', [(1:numel(sortedValues(1:5)))', value(sortedValues(1:5))]');
 
 for i = 1:beams.nbeams
@@ -145,4 +145,6 @@ sigma = N./value(sections.A)/1000;
 disp('= Normal stresses ======')
 fprintf('sigma%d = %f MPa \n', [(1:numel(sigma))', value(sigma)]');
 % Graph of deformed structure
-graph = deformationGraphFn(nodes,beams,sortedVectors(:,1),3);
+graphValueId = 1;
+graphScale = 3;
+graph = deformationGraphFn(nodes,beams,sortedVectors(:,graphValueId),graphScale);

@@ -129,7 +129,7 @@ end
 
 [endForces.local, displ] = endForcesFn(realMatrix,endForces,transformationMatrix,elements); % Solving FEM -> u = K\f
 
-%   % Optimization
+%% Optimization
 geometricMatrix = geometricMatrixFnV2(elements,transformationMatrix,endForces);             % Geometric stiffness matrix
 
 nonnegativeCrossSections = outA>=0.00001; % Limit for minimal cross-sections
@@ -170,4 +170,6 @@ sigma = N./value(outA)/1000;
 disp('= Normal stresses ======')
 fprintf('sigma%d = %f MPa \n', [(1:numel(sigma))', value(sigma)]');
 % Graph of deformed structure
-graph = deformationGraphFn(nodes,beams,sortedVectors(:,1),3);
+graphValueId = 1;
+graphScale = 3;
+graph = deformationGraphFn(nodes,beams,sortedVectors(:,graphValueId),graphScale);
