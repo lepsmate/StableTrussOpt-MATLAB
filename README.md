@@ -37,6 +37,7 @@ The whole optimization
 ```
 >> towerStabTorii_ex0_opt1
 ```
+The output should look like [TypicalRun.txt](TypicalRun.txt) .
 
 ## Documentation
 Documentation/user manual is available [here](.pdf).
